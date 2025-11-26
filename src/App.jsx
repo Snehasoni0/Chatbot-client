@@ -11,7 +11,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    axios.post(`http://localhost:8000/ask`, { question })
+    axios.post('https://chatbot-server-wriq.onrender.com/ask', { question })
       .then((res) => res.data)
       .then((finalRes) => {
         if (finalRes.status) {
