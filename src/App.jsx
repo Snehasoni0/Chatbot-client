@@ -23,24 +23,43 @@ function App() {
 
   return (
     <>
-      <div className='w-screen'>
-        <h1 className='w-full bg-gray-900 text-white py-4 text-center text-sm sm:text-md md:text-[16px] lg:text-4xl'>CloudTalk</h1>
-        <div className='max-w-[1170px] mx-auto grid grid-cols-[30%_auto] gap-5 pt-[30px]'>
-          <form className='w-full' onSubmit={handleSubmit}>
-            <textarea value={question} onChange={(e) => setQuestion(e.target.value)} name="" id="" placeholder='Hi there! 👋 How can I help you today?' rows={8} className='w-full outline-none border-2 rounded border-gray-500 px-3 py-2 '></textarea>
-            <button className='bg-gray-800 rounded w-full py-2 text-white active:scale-95 cursor-pointer'>Generate</button>
+      <div className="w-screen min-h-screen bg-white">
+        <h1 className="w-full bg-gray-900 text-white py-4 text-center 
+                 text-lg sm:text-xl md:text-2xl lg:text-4xl font-semibold">
+          CloudTalk
+        </h1>
+
+        <div className="max-w-[1170px] mx-auto px-4 
+                  grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
+
+          <form className="w-full" onSubmit={handleSubmit}>
+            <textarea
+              value={question}
+              onChange={(e) => setQuestion(e.target.value)}
+              placeholder="Hi there! 👋 How can I help you today?"
+              rows={8}
+              className="w-full outline-none border-2 rounded border-gray-500 px-3 py-2
+                   text-sm sm:text-base"
+            ></textarea>
+
+            <button className="bg-gray-800 rounded w-full py-2 mt-3 text-white 
+                         active:scale-95 cursor-pointer text-sm sm:text-base">
+              Generate
+            </button>
           </form>
-          <div className='border-l border-[#ccc]'>
-            <div className='h-[350px] bg-gray-100 overflow-y-scroll p-3 text-left'>
-              {
-                loading
-                  ?
-                  <Loader />
-                  :
-                  <Markdown>
-                    {data}
-                  </Markdown>
-              }
+
+          <div className="md:border-l border-gray-300">
+            <div className="h-[300px] sm:h-[350px] md:h-[380px] lg:h-[420px] 
+                      bg-gray-100 overflow-y-scroll p-3 rounded text-left text-sm sm:text-base">
+
+              {loading ? (
+                <Loader />
+              ) : (
+                <Markdown>
+                  {data}
+                </Markdown>
+              )}
+
             </div>
           </div>
         </div>
